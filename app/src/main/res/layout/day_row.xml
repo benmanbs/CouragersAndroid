@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="2dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="0dp"
+    android:id="@+id/sub_list_row_layout"
+    android:weightSum="1">
+
+    <com.benjaminshai.couragers.views.FontTextView
+        app:fontName="blair.ttf"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Wednesday"
+        android:id="@+id/list_day_textview"
+        android:layout_weight="0.10"
+        android:gravity="center"
+        android:textSize="26sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:shadowColor="@android:color/black"
+        android:shadowRadius="5"/>
+
+</RelativeLayout>

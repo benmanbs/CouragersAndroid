@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="2dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="0dp"
+    android:id="@+id/sub_list_row_layout"
+    android:weightSum="1">
+
+    <com.benjaminshai.couragers.views.FontTextView
+        android:id="@+id/list_time_textview"
+        app:fontName="copper.ttf"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="10:00 PM"
+        android:layout_weight="0.10"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_alignBottom="@+id/list_title_textview"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <com.benjaminshai.couragers.views.FontTextView
+        android:id="@+id/list_title_textview"
+        app:fontName="copper.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Title of something"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/list_time_textview"
+        android:layout_toEndOf="@+id/list_time_textview"
+        android:gravity="right"/>
+
+    <ImageView
+        android:id="@+id/mapImage"
+        android:layout_width="wrap_content"
+        android:layout_height="130px"
+        android:src="@drawable/map_button"
+        android:layout_alignLeft="@+id/list_time_textview"
+        android:layout_alignStart="@+id/list_time_textview"
+        android:layout_alignBottom="@+id/list_details_textview"
+        android:layout_marginBottom="10px" />
+
+    <com.benjaminshai.couragers.views.FontTextView
+        android:id="@+id/list_details_textview"
+        app:fontName="copper.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Long detail about something that seems to go on and on"
+        android:layout_below="@+id/list_time_textview"
+        android:layout_toRightOf="@+id/list_time_textview"
+        android:layout_toEndOf="@+id/list_time_textview"
+        android:gravity="right" />
+
+</RelativeLayout>
