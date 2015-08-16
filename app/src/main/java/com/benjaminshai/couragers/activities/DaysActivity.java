@@ -28,7 +28,7 @@ public class DaysActivity extends ActivityWithToolbar implements SwipeRefreshLay
 
     private ListView listView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
-    private List<Day> dayList = new ArrayList<Day>();
+    private DayService.DaysSingleton daySingleton = DayService.DaysSingleton.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +43,11 @@ public class DaysActivity extends ActivityWithToolbar implements SwipeRefreshLay
 
         Intent intent = getIntent();
         final List<Day> days;
-        if (dayList.isEmpty()) {
+        if (daySingleton.getDays().isEmpty()) {
             days = intent.getParcelableArrayListExtra("days");
+            daySingleton.setDays(days);
         } else {
-            days = dayList;
+            days = daySingleton.getDays();
         }
 
 
@@ -81,7 +82,7 @@ public class DaysActivity extends ActivityWithToolbar implements SwipeRefreshLay
                 break;
             case ResponseStatus.FINISHED:
                 ArrayList<Day> days =  resultData.getParcelableArrayList("results");
-                this.dayList = days;
+                this.daySingleton.setDays(days);
                 this.recreate();
                 mSwipeRefreshLayout.setRefreshing(false);
                 break;

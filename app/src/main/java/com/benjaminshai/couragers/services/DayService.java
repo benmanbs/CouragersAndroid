@@ -40,6 +40,7 @@ public class DayService extends IntentService {
                 String JSON = getJSON();
                 ArrayList<Day> days = new BeanParser().parse(JSON);
                 b.putParcelableArrayList("results", days);
+                DaysSingleton.getInstance().setDays(days);
                 receiver.send(ResponseStatus.FINISHED, b);
             } catch(Exception e) {
                 b.putString(Intent.EXTRA_TEXT, e.toString());
@@ -64,5 +65,30 @@ public class DayService extends IntentService {
 
         return response.body().string();
 
+    }
+
+    public static class DaysSingleton {
+
+        private List<Day> days;
+        private static DaysSingleton INSTANCE;
+
+        private DaysSingleton () {
+            days = new ArrayList<Day>();
+        }
+
+        public static DaysSingleton getInstance() {
+            if (INSTANCE == null) {
+                INSTANCE = new DaysSingleton();
+            }
+            return INSTANCE;
+        }
+
+        public void setDays(List<Day> days) {
+            this.days = days;
+        }
+
+        public List<Day> getDays() {
+            return days;
+        }
     }
 }
