@@ -20,7 +20,7 @@
 
     <com.benjaminshai.couragers.views.FontTextView
         android:id="@+id/album_name"
-        app:fontName="copper.ttf"
+        app:fontName="blair.ttf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Media Team"

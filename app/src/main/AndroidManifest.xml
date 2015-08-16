@@ -48,6 +48,10 @@
             android:name=".activities.GalleriesActivity"
             android:label="@string/title_activity_galleries" >
         </activity>
+        <activity
+            android:name=".activities.GallerySelector"
+            android:label="@string/title_activity_gallery_selector" >
+        </activity>
     </application>
 
 </manifest>
