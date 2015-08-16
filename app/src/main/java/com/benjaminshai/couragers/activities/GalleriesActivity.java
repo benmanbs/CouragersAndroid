@@ -21,15 +21,8 @@ import android.widget.RelativeLayout;
 
 import com.benjaminshai.couragers.Constants;
 import com.benjaminshai.couragers.R;
-import com.benjaminshai.couragers.beans.Event;
-import com.benjaminshai.couragers.beans.ImageInfo;
 import com.benjaminshai.couragers.views.FontTextView;
 import com.googlecode.flickrjandroid.Flickr;
-import com.googlecode.flickrjandroid.RequestContext;
-import com.googlecode.flickrjandroid.collections.Collection;
-import com.googlecode.flickrjandroid.oauth.OAuth;
-import com.googlecode.flickrjandroid.oauth.OAuthToken;
-import com.googlecode.flickrjandroid.people.User;
 import com.googlecode.flickrjandroid.photos.Photo;
 import com.googlecode.flickrjandroid.photosets.Photoset;
 import com.squareup.okhttp.OkHttpClient;
@@ -57,17 +50,23 @@ public class GalleriesActivity extends ActivityWithToolbar {
         setContentView(R.layout.activity_galleries);
         attachToolbar();
 
+        Intent intent = getIntent();
+        String collectionId = intent.getStringExtra("collectionId");
         listView = (ListView) findViewById(R.id.mainList);
 
-        new LoadAlbumsFromFlickr().execute();
+        new LoadAlbumsFromFlickr(collectionId).execute();
     }
 
     private class LoadAlbumsFromFlickr extends AsyncTask<String, Integer, ArrayList<PhotosetData>> {
         private final String API_CODE = Constants.FLICKR_API_KEY;
         private final String SECRET_CODE = Constants.FLICKR_SECRET_KEY;
-        private final String FLICKR_URL = "https://api.flickr.com/services/rest/?method=" +
-                "flickr.collections.getTree&api_key=" + API_CODE + "&user_id=" + Constants.USER_ID +
-                "&collection_id=" + Constants.COLLECTION_ID + "&format=json&nojsoncallback=1";
+        private final String FLICKR_URL;
+
+        public LoadAlbumsFromFlickr(String collectionID) {
+            this.FLICKR_URL = "https://api.flickr.com/services/rest/?method=" +
+                    "flickr.collections.getTree&api_key=" + API_CODE + "&user_id=" + Constants.USER_ID +
+                    "&collection_id=" + collectionID+ "&format=json&nojsoncallback=1";
+        }
 
         @Override
         protected void onPreExecute() {
@@ -107,29 +106,30 @@ public class GalleriesActivity extends ActivityWithToolbar {
                     String description = set.description;
                     String id = set.id;
 
-                    Photoset innerSet = flickr.getPhotosetsInterface().getPhotos(id, 3, 0);
+                    Photoset innerSet = flickr.getPhotosetsInterface().getPhotos(id, 0, 0);
                     // get the first three pictures, and store them
                     PhotoInfo[] info = new PhotoInfo[3];
-                    for (int i = 0; i < 3; i++ ) {
-                        if (innerSet.getPhotoList().size() < i + 1) {
-                            break;
-                        }
-                        Photo photo = innerSet.getPhotoList().get(i);
+                    String[] urls = new String[innerSet.getPhotoList().size()];
+                    for (int i = 0; i < innerSet.getPhotoList().size(); i++ ) {
+                        if (i < 3) {
+                            Photo photo = innerSet.getPhotoList().get(i);
 
-                        String thumbnailUrl = photo.getThumbnailUrl();
-                        String mediumUrl = photo.getMediumUrl();
-                        InputStream inputStreamThumbnail = null;
-                        try {
-                            inputStreamThumbnail = new URL(thumbnailUrl).openStream();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        Bitmap bitmapThumbnail = BitmapFactory.decodeStream(inputStreamThumbnail);
+                            String thumbnailUrl = photo.getThumbnailUrl();
+                            String mediumUrl = photo.getMediumUrl();
+                            InputStream inputStreamThumbnail = null;
+                            try {
+                                inputStreamThumbnail = new URL(thumbnailUrl).openStream();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            Bitmap bitmapThumbnail = BitmapFactory.decodeStream(inputStreamThumbnail);
 
-                        info[i] = new PhotoInfo(bitmapThumbnail, mediumUrl);
+                            info[i] = new PhotoInfo(bitmapThumbnail, mediumUrl);
+                        }
+                        urls[i] = innerSet.getPhotoList().get(i).getMediumUrl();
                     }
 
-                    result.add(new PhotosetData(description, id, info));
+                    result.add(new PhotosetData(description, id, info, urls));
                 }
                 return result;
             } catch (Exception e) {
@@ -175,11 +175,13 @@ public class GalleriesActivity extends ActivityWithToolbar {
         private String description;
         private String id;
         private PhotoInfo[] photoInfo;
+        private String[] urls;
 
-        public PhotosetData(String description, String id, PhotoInfo[] photoInfo) {
+        public PhotosetData(String description, String id, PhotoInfo[] photoInfo, String[] urls) {
             this.description = description;
             this.id = id;
             this.photoInfo = photoInfo;
+            this.urls = urls;
         }
 
         public String getDescription() {
@@ -204,6 +206,14 @@ public class GalleriesActivity extends ActivityWithToolbar {
 
         public void setPhotoInfo(PhotoInfo[] photoInfo) {
             this.photoInfo = photoInfo;
+        }
+
+        public String[] getUrls() {
+            return urls;
+        }
+
+        public void setUrls(String[] urls) {
+            this.urls = urls;
         }
     }
 
@@ -327,12 +337,14 @@ public class GalleriesActivity extends ActivityWithToolbar {
 
                     imageView.setVisibility(View.VISIBLE);
                     imageView.setImageBitmap(info.getPhoto());
+                    final int imagePosition = counter - 1;
                     imageView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            // Since the user is clicking directly from here, we don't have the full
-                            // url list for the view. Retrieve it first.
-
+                            Intent intent = new Intent(GalleriesActivity.this, MediumViewActivity.class);
+                            intent.putExtra("position", imagePosition);
+                            intent.putExtra("imageUrls", photos.getUrls());
+                            GalleriesActivity.this.startActivity(intent);
                         }
                     });
                 }

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.benjaminshai.couragers.Constants;
 import com.benjaminshai.couragers.R;
 
 /**
@@ -33,6 +34,7 @@ public abstract class ActivityWithToolbar extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(ActivityWithToolbar.this, GalleriesActivity.class);
+                    i.putExtra("collectionId", Constants.COLLECTION_ID);
                     startActivity(i);
                 }
             });

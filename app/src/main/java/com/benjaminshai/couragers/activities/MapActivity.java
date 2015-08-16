@@ -18,7 +18,7 @@ import java.io.InputStream;
 import it.sephiroth.android.library.imagezoom.ImageViewTouch;
 import it.sephiroth.android.library.imagezoom.ImageViewTouchBase;
 
-public class MapActivity extends AppCompatActivity {
+public class MapActivity extends ActivityWithToolbar {
 
     ImageViewTouch mImage;
     private String mapURL;
@@ -31,6 +31,8 @@ public class MapActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_map);
 
+        attachToolbar();
+
     }
 
     @Override
@@ -41,11 +43,7 @@ public class MapActivity extends AppCompatActivity {
         mImage.setDisplayType( ImageViewTouchBase.DisplayType.FIT_IF_BIGGER );
 
 
-        // setBackgorundColor(backColor);
         selectImage(mapURL);
-
-
-
     }
 
     private void setBackgorundColor(int color) {
