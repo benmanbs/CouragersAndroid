@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.benjaminshai.couragers.activities.GalleriesActivity">
+
+    <ImageView
+        android:id="@+id/background"
+        android:src="@drawable/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:scaleType="centerCrop"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true" />
+
+    <com.benjaminshai.couragers.views.FontTextView
+        android:id="@+id/album_name"
+        app:fontName="painter.ttf"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Media Team"
+        android:layout_weight="0.10"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="150px"
+        android:paddingBottom="@dimen/activity_vertical_margin"/>
+
+    <ListView
+        android:scrollbars="none"
+        android:id ="@+id/mainList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/album_name"
+        android:layout_above="@id/tool_bar"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"/>
+
+    <ImageView
+        android:id="@+id/gator"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:src="@drawable/gator"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:scaleType="centerCrop" />
+
+    <include android:id="@id/tool_bar"
+        layout="@layout/menu" />
+
+</RelativeLayout>

@@ -14,6 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.benjaminshai.couragers.Constants;
 import com.benjaminshai.couragers.R;
 import com.benjaminshai.couragers.beans.ImageInfo;
 import com.googlecode.flickrjandroid.Flickr;
@@ -35,13 +36,16 @@ public class GalleryActivity extends ActivityWithToolbar {
         setContentView(R.layout.activity_gallery);
         attachToolbar();
 
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("photosetId");
+
         initializeComponents();
-        new LoadImagesFromFlickrTask().execute();
+        new LoadImagesFromFlickrTask(id).execute();
     }
 
     private void initializeComponents() {
         float spacing = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                0, getResources().getDisplayMetrics());
+                2, getResources().getDisplayMetrics());
 
         gridView = (GridView)findViewById(R.id.gridView);
 
@@ -52,9 +56,13 @@ public class GalleryActivity extends ActivityWithToolbar {
     }
 
     private class LoadImagesFromFlickrTask extends AsyncTask<String, Integer, ArrayList<ImageInfo>> {
-        private final String API_CODE = "";
-        private final String SECRET_CODE = "";
-        private final String PHOTOSET_ID = "";
+        private final String API_CODE = Constants.FLICKR_API_KEY;
+        private final String SECRET_CODE = Constants.FLICKR_SECRET_KEY;
+        private final String PHOTOSET_ID;
+
+        public LoadImagesFromFlickrTask(String id) {
+            this.PHOTOSET_ID = id;
+        }
 
         @Override
         protected void onPreExecute() {

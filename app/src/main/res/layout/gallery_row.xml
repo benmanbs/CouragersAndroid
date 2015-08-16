@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tool_bar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/topBar"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <com.benjaminshai.couragers.views.FontTextView
+            android:id="@+id/dayTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/more"
+            android:layout_toStartOf="@+id/more"
+            android:text="Wednesday"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            app:fontName="blair.ttf" />
+
+        <ImageView
+            android:id="@+id/more"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/plus" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/topBar"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            android:padding="1dp" />
+
+        <ImageView
+            android:id="@+id/image2"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            android:padding="1dp" />
+
+        <ImageView
+            android:id="@+id/image3"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            android:padding="1dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

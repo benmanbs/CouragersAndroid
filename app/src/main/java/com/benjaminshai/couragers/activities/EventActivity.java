@@ -64,7 +64,7 @@ public class EventActivity extends AppCompatActivity {
 
                 LayoutInflater inflater =(LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-                v=inflater.inflate(R.layout.event_row,null);
+                v=inflater.inflate(R.layout.event_row, null);
 
             }
 

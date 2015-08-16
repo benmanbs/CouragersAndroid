@@ -44,6 +44,10 @@
             android:name=".activities.MediumViewActivity"
             android:label="@string/title_activity_medium_view" >
         </activity>
+        <activity
+            android:name=".activities.GalleriesActivity"
+            android:label="@string/title_activity_galleries" >
+        </activity>
     </application>
 
 </manifest>

@@ -32,7 +32,7 @@ public abstract class ActivityWithToolbar extends AppCompatActivity {
             gallery.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(ActivityWithToolbar.this, GalleryActivity.class);
+                    Intent i = new Intent(ActivityWithToolbar.this, GalleriesActivity.class);
                     startActivity(i);
                 }
             });
