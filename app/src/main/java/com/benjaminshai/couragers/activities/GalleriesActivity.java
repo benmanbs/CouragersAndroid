@@ -46,7 +46,11 @@ public class GalleriesActivity extends ActivityWithToolbar {
 
         Intent intent = getIntent();
         String collectionId = intent.getStringExtra("collectionId");
+        String collectionName = intent.getStringExtra("collectionName");
+
         listView = (ListView) findViewById(R.id.mainList);
+        FontTextView albumName = (FontTextView) findViewById(R.id.album_name);
+        albumName.setText(collectionName);
 
         new LoadAlbumsFromFlickr(collectionId).execute();
     }

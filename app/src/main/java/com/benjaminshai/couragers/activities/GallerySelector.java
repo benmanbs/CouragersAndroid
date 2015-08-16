@@ -26,6 +26,7 @@ public class GallerySelector extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(GallerySelector.this, GalleriesActivity.class);
                 i.putExtra("collectionId", Constants.MEDIA_COLLECTION_ID);
+                i.putExtra("collectionName", "Media Team");
                 startActivity(i);
             }
         });
@@ -35,6 +36,7 @@ public class GallerySelector extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(GallerySelector.this, GalleriesActivity.class);
                 i.putExtra("collectionId", Constants.KIDS_COLLECTION_ID);
+                i.putExtra("collectionName", "Couragers");
                 startActivity(i);
             }
         });
