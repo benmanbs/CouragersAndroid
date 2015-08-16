@@ -28,4 +28,7 @@ dependencies {
     compile 'it.sephiroth.android.library.imagezoom:imagezoom:+'
 
     compile 'com.google.code.gson:gson:2.2.+'
+
+    compile 'com.googlecode.flickrj-android:flickrj-android:2.1.0'
+    compile 'org.slf4j:slf4j-api:1.7.12'
 }

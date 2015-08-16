@@ -24,7 +24,7 @@ import com.benjaminshai.couragers.beans.Day;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DaysActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener, MyResultReceiver.Receiver {
+public class DaysActivity extends ActivityWithToolbar implements SwipeRefreshLayout.OnRefreshListener, MyResultReceiver.Receiver{
 
     private ListView listView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -34,6 +34,7 @@ public class DaysActivity extends AppCompatActivity implements SwipeRefreshLayou
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_days);
+        attachToolbar();
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         mSwipeRefreshLayout.setOnRefreshListener(this);
