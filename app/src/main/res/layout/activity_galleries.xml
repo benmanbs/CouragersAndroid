@@ -20,12 +20,12 @@
 
     <com.benjaminshai.couragers.views.FontTextView
         android:id="@+id/album_name"
-        app:fontName="painter.ttf"
+        app:fontName="copper.ttf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Media Team"
         android:layout_weight="0.10"
-        android:textSize="30sp"
+        android:textSize="26sp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:paddingLeft="@dimen/activity_horizontal_margin"
