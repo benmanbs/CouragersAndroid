@@ -24,7 +24,8 @@
         android:id ="@+id/mainList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/dayTitle"/>
+        android:layout_below="@+id/dayTitle"
+        android:layout_above="@id/tool_bar" />
 
     <ImageView
         android:id="@+id/gator"
@@ -35,5 +36,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:scaleType="centerCrop" />
+
+    <include android:id="@id/tool_bar"
+        layout="@layout/menu" />
 
 </RelativeLayout>

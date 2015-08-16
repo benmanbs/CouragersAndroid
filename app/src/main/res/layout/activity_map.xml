@@ -9,4 +9,7 @@
         android:layout_weight="1"
         android:scaleType="matrix" />
 
+    <include android:id="@id/tool_bar"
+        layout="@layout/menu" />
+
 </LinearLayout>
