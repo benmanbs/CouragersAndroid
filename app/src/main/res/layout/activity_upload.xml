@@ -70,7 +70,7 @@
                 android:src="@drawable/gallery_large" />
 
             <com.benjaminshai.couragers.views.FontTextView
-                android:id="@+id/gallery"
+                android:id="@+id/gallery_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

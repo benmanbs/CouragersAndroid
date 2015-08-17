@@ -8,13 +8,15 @@ import android.widget.TextView;
 
 import com.benjaminshai.couragers.Constants;
 import com.benjaminshai.couragers.R;
+import com.benjaminshai.couragers.activities.ActivityWithToolbar;
 
-public class GallerySelector extends AppCompatActivity {
+public class GallerySelector extends ActivityWithToolbar {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery_selector);
+        attachToolbar();
 
         TextView media = (TextView) findViewById(R.id.media_team);
         TextView couragers = (TextView) findViewById(R.id.couragers);
