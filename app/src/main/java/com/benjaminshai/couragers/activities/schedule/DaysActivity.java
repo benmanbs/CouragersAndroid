@@ -1,11 +1,10 @@
-package com.benjaminshai.couragers.activities;
+package com.benjaminshai.couragers.activities.schedule;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +15,7 @@ import android.widget.ListView;
 
 import com.benjaminshai.couragers.MyResultReceiver;
 import com.benjaminshai.couragers.ResponseStatus;
+import com.benjaminshai.couragers.activities.ActivityWithToolbar;
 import com.benjaminshai.couragers.services.DayService;
 import com.benjaminshai.couragers.views.FontTextView;
 import com.benjaminshai.couragers.R;

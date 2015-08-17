@@ -1,11 +1,10 @@
-package com.benjaminshai.couragers.activities;
+package com.benjaminshai.couragers.activities.gallery;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
@@ -16,6 +15,7 @@ import android.widget.ImageView;
 
 import com.benjaminshai.couragers.Constants;
 import com.benjaminshai.couragers.R;
+import com.benjaminshai.couragers.activities.ActivityWithToolbar;
 import com.benjaminshai.couragers.beans.ImageInfo;
 import com.googlecode.flickrjandroid.Flickr;
 import com.googlecode.flickrjandroid.photos.Photo;

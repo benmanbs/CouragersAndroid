@@ -1,9 +1,8 @@
-package com.benjaminshai.couragers.activities;
+package com.benjaminshai.couragers.activities.schedule;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.benjaminshai.couragers.activities.ActivityWithToolbar;
 import com.benjaminshai.couragers.views.FontTextView;
 import com.benjaminshai.couragers.R;
 import com.benjaminshai.couragers.beans.Day;

@@ -5,6 +5,9 @@
     android:versionName="2.0.0" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -25,33 +28,47 @@
         <service android:name=".services.DayService" />
 
         <activity
-            android:name=".activities.DaysActivity"
+            android:name=".activities.schedule.DaysActivity"
             android:label="@string/title_activity_days" >
         </activity>
         <activity
-            android:name=".activities.EventActivity"
+            android:name=".activities.schedule.EventActivity"
             android:label="@string/title_activity_event" >
         </activity>
         <activity
-            android:name=".activities.MapActivity"
+            android:name=".activities.schedule.MapActivity"
             android:label="@string/title_activity_map" >
         </activity>
         <activity
-            android:name=".activities.GalleryActivity"
+            android:name=".activities.gallery.GalleryActivity"
             android:label="@string/title_activity_gallery" >
         </activity>
         <activity
-            android:name=".activities.MediumViewActivity"
+            android:name=".activities.gallery.MediumViewActivity"
             android:label="@string/title_activity_medium_view" >
         </activity>
         <activity
-            android:name=".activities.GalleriesActivity"
+            android:name=".activities.gallery.GalleriesActivity"
             android:label="@string/title_activity_galleries" >
         </activity>
         <activity
-            android:name=".activities.GallerySelector"
+            android:name=".activities.gallery.GallerySelector"
             android:label="@string/title_activity_gallery_selector" >
         </activity>
+        <activity
+            android:name=".activities.image.upload.UploadActivity"
+            android:label="@string/title_activity_upload" >
+        </activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.benjaminshai.couragers.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

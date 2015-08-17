@@ -1,4 +1,4 @@
-package com.benjaminshai.couragers.activities;
+package com.benjaminshai.couragers.activities.gallery;
 
 import android.app.Activity;
 import android.content.Context;
@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.benjaminshai.couragers.R;
+import com.benjaminshai.couragers.activities.ActivityWithToolbar;
 import com.benjaminshai.couragers.beans.ImageInfo;
 import com.googlecode.flickrjandroid.Flickr;
 import com.googlecode.flickrjandroid.photos.Photo;

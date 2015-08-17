@@ -10,4 +10,5 @@
     <string name="title_activity_medium_view">MediumViewActivity</string>
     <string name="title_activity_galleries">GalleriesActivity</string>
     <string name="title_activity_gallery_selector">GallerySelector</string>
+    <string name="title_activity_upload">UploadActivity</string>
 </resources>

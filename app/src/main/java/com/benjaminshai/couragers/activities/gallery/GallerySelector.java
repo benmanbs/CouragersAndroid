@@ -1,10 +1,8 @@
-package com.benjaminshai.couragers.activities;
+package com.benjaminshai.couragers.activities.gallery;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 

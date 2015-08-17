@@ -1,4 +1,4 @@
-package com.benjaminshai.couragers.activities;
+package com.benjaminshai.couragers.activities.schedule;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,6 +11,7 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.benjaminshai.couragers.R;
+import com.benjaminshai.couragers.activities.ActivityWithToolbar;
 
 import java.io.IOException;
 import java.io.InputStream;
