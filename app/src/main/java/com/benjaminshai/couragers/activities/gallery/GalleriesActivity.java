@@ -132,8 +132,8 @@ public class GalleriesActivity extends ActivityWithToolbar {
                 }
                 return result;
             } catch (Exception e) {
-                // do something, you fool!!
-                return null;
+                // return an empty list so we don't NPE
+                return new ArrayList<PhotosetData>();
             }
         }
 
