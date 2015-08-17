@@ -33,6 +33,7 @@ import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
+import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -41,6 +42,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -51,7 +53,7 @@ public class UploadActivity extends AppCompatActivity {
     private static final String CAPTURE_IMAGE_FILE_PROVIDER = "com.benjaminshai.couragers.fileprovider";
     private static final String IMAGE_UPLOAD_URL = "http://teddysappserver.com:8080/api/images";
 
-    private File f;
+    private String fileName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +66,9 @@ public class UploadActivity extends AppCompatActivity {
             public void onClick(View v) {
                 File path = new File(getFilesDir(), "images/");
                 if (!path.exists()) path.mkdirs();
-                File image = new File(path, "image.jpg");
+                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+                fileName = "JPEG_" + timeStamp + "_.jpg";
+                File image = new File(path, fileName);
                 Uri imageUri = FileProvider.getUriForFile(UploadActivity.this, CAPTURE_IMAGE_FILE_PROVIDER, image);
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
@@ -88,11 +92,29 @@ public class UploadActivity extends AppCompatActivity {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
             File path = new File(getFilesDir(), "images/");
             if (!path.exists()) path.mkdirs();
-            File imageFile = new File(path, "image.jpg");
-
-            Bitmap bitmap = BitmapFactory.decodeFile(imageFile.getAbsolutePath());
+            File imageFile = new File(path, fileName);
 
             new UploadToServer().execute(imageFile);
+        } else if (requestCode == REQUEST_GALLERY && resultCode == Activity.RESULT_OK) {
+            Uri uri = data.getData();
+
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+
+                String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+                fileName = "JPEG_" + timeStamp + "_.jpg";
+
+                File path = new File(getFilesDir(), "images/");
+                if (!path.exists()) path.mkdirs();
+                File file = new File(path, fileName);
+                OutputStream os = new BufferedOutputStream(new FileOutputStream(file));
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os);
+                os.close();
+
+                new UploadToServer().execute(file);
+            } catch (Exception e) {
+                // this sucks
+            }
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
