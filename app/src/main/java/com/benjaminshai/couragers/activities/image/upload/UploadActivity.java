@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.benjaminshai.couragers.R;
+import com.benjaminshai.couragers.activities.ActivityWithToolbar;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -46,7 +47,7 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class UploadActivity extends AppCompatActivity {
+public class UploadActivity extends ActivityWithToolbar {
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int REQUEST_GALLERY = 2;
@@ -59,6 +60,8 @@ public class UploadActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
+
+        attachToolbar();
 
         LinearLayout upload = (LinearLayout) findViewById(R.id.upload_image);
         upload.setOnClickListener(new View.OnClickListener() {
