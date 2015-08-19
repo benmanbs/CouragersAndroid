@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.benjaminshai.couragers.Constants;
 import com.benjaminshai.couragers.R;
@@ -164,6 +165,15 @@ public class GalleriesActivity extends ActivityWithToolbar {
 
         @Override
         protected void onPostExecute(ArrayList<PhotosetData> list) {
+            // hide status bar
+            GalleriesActivity.this.findViewById(R.id.progress_bar).setVisibility(View.GONE);
+
+            // if collection is empty, show error page.
+            if (list.isEmpty()) {
+                ((TextView)GalleriesActivity.this.findViewById(R.id.galleries_error_view)).setText("Failed to load flickr albums. Please try again.");
+                return;
+            }
+
             GalleriesAdapter galleriesAdapter = new GalleriesAdapter(GalleriesActivity.this, R.layout.gallery_row, list);
             listView.setAdapter(galleriesAdapter);
             super.onPostExecute(list);

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.benjaminshai.couragers.Constants;
 import com.benjaminshai.couragers.R;
@@ -95,12 +96,21 @@ public class GalleryActivity extends ActivityWithToolbar {
                 return result;
             } catch (Exception e) {
                 // do something, you fool!!
-                return null;
+                return new ArrayList<ImageInfo>();
             }
         }
 
         @Override
         protected void onPostExecute(ArrayList<ImageInfo> list) {
+            // hide status bar
+            GalleryActivity.this.findViewById(R.id.progress_bar).setVisibility(View.GONE);
+
+            // if collection is empty, show error page.
+            if (list.isEmpty()) {
+                ((TextView)GalleryActivity.this.findViewById(R.id.galleries_error_view)).setText("Failed to load flickr album. Please try again.");
+                return;
+            }
+
             ImageGridViewAdapter imageGridViewAdapter = new ImageGridViewAdapter(GalleryActivity.this, list);
             gridView.setAdapter(imageGridViewAdapter);
             super.onPostExecute(list);
