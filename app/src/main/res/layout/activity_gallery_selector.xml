@@ -28,6 +28,7 @@
         <com.benjaminshai.couragers.views.FontTextView
             android:id="@+id/media_team"
             app:fontName="blair.ttf"
+            android:textColor="#FFFFFF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Media Team Pictures"
@@ -41,6 +42,7 @@
         <com.benjaminshai.couragers.views.FontTextView
             android:id="@+id/couragers"
             app:fontName="blair.ttf"
+            android:textColor="#FFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Couragers Uploaded Pictures"
@@ -52,16 +54,6 @@
             android:gravity="center"/>
 
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/gator"
-        android:layout_width="match_parent"
-        android:layout_height="150px"
-        android:src="@drawable/gator"
-        android:layout_alignParentBottom="false"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:scaleType="centerCrop" />
 
     <include android:id="@id/tool_bar"
         layout="@layout/menu" />

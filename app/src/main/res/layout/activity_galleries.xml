@@ -21,6 +21,7 @@
     <com.benjaminshai.couragers.views.FontTextView
         android:id="@+id/album_name"
         app:fontName="blair.ttf"
+        android:textColor="#FFFFFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Media Team"
@@ -43,16 +44,6 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"/>
 
-    <ImageView
-        android:id="@+id/gator"
-        android:layout_width="match_parent"
-        android:layout_height="150px"
-        android:src="@drawable/gator"
-        android:layout_alignParentBottom="false"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:scaleType="centerCrop" />
-
     <include android:id="@id/tool_bar"
         layout="@layout/menu" />
 
@@ -74,7 +65,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Loading..." />
+            android:text="Loading..."
+            android:textColor="#FFFFFF"/>
     </LinearLayout>
 
     <TextView
@@ -87,7 +79,6 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/gator"
         android:gravity="center" />
 
 </RelativeLayout>

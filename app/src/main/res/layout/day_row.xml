@@ -14,6 +14,7 @@
 
     <com.benjaminshai.couragers.views.FontTextView
         app:fontName="blair.ttf"
+        android:textColor="#FFFFFF"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Wednesday"

@@ -25,7 +25,7 @@
         android:layout_above="@+id/tool_bar">
 
         <ListView
-            android:divider="#000000"
+            android:divider="#FFFFFF"
             android:dividerHeight="2px"
             android:scrollbars="none"
             android:id ="@+id/mainList"
@@ -34,16 +34,6 @@
             android:paddingTop="100px" />
 
     </android.support.v4.widget.SwipeRefreshLayout>
-
-    <ImageView
-        android:id="@+id/gator"
-        android:layout_width="match_parent"
-        android:layout_height="150px"
-        android:src="@drawable/gator"
-        android:layout_alignParentBottom="false"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:scaleType="centerCrop" />
 
     <include android:id="@id/tool_bar"
         layout="@layout/menu" />
