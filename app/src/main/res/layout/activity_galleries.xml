@@ -20,7 +20,7 @@
 
     <com.benjaminshai.couragers.views.FontTextView
         android:id="@+id/album_name"
-        app:fontName="blair.ttf"
+        app:fontName="onyx.ttf"
         android:textColor="#FFFFFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

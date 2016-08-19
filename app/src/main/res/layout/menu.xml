@@ -8,7 +8,7 @@
     android:layout_alignParentLeft="true"
     android:layout_alignParentRight="true"
     android:layout_alignParentStart="true"
-    android:background="#FFFFFF"
+    android:background="#F8D8B1"
     android:orientation="horizontal">
 
     <LinearLayout

@@ -14,7 +14,7 @@
 
     <com.benjaminshai.couragers.views.FontTextView
         android:id="@+id/list_time_textview"
-        app:fontName="copper.ttf"
+        app:fontName="BlackHawk.otf"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:text="10:00 PM"
@@ -26,7 +26,7 @@
 
     <com.benjaminshai.couragers.views.FontTextView
         android:id="@+id/list_title_textview"
-        app:fontName="copper.ttf"
+        app:fontName="onyx.ttf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -50,7 +50,7 @@
 
     <com.benjaminshai.couragers.views.FontTextView
         android:id="@+id/list_details_textview"
-        app:fontName="copper.ttf"
+        app:fontName="onyx.ttf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Long detail about something that seems to go on and on"

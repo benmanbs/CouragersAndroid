@@ -27,8 +27,8 @@
 
         <com.benjaminshai.couragers.views.FontTextView
             android:id="@+id/media_team"
-            app:fontName="blair.ttf"
-            android:textColor="#FFFFFF"
+            app:fontName="onyx.ttf"
+            android:textColor="#B6FFC6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Media Team Pictures"
@@ -41,9 +41,9 @@
 
         <com.benjaminshai.couragers.views.FontTextView
             android:id="@+id/couragers"
-            app:fontName="blair.ttf"
-            android:textColor="#FFFFFF"
-            android:layout_width="wrap_content"
+            app:fontName="onyx.ttf"
+            android:textColor="#B6FFC6"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Couragers Uploaded Pictures"
             android:layout_weight="1"

@@ -1,4 +1,5 @@
 .idea
 .gradle
+app/src/main/java/com/benjaminshai/couragers/Constants.java
 build/
-radle/
+gradle/

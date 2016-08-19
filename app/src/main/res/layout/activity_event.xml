@@ -6,7 +6,7 @@
     tools:context="com.benjaminshai.couragers.activities.schedule.EventActivity">
 
     <com.benjaminshai.couragers.views.FontTextView
-        app:fontName="blair.ttf"
+        app:fontName="BleedingCowboys.ttf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/dayTitle"
