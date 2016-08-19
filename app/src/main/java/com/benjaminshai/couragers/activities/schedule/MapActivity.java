@@ -56,7 +56,7 @@ public class MapActivity extends ActivityWithToolbar {
 
     public void selectImage(String nameURL) {
 
-        String name = nameURL.toLowerCase() + ".png";
+        String name = nameURL + ".png";
 
         Bitmap bitmap = null; // = DecodeUtils.decode(this, imageUri, size, size);
 
