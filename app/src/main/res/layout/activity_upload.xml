@@ -51,8 +51,8 @@
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:text="Take a Photo"
                 android:textSize="26sp"
-                app:fontName="onyx.ttf"
-                android:textColor="#B6FFC6" />
+                app:fontName="Graphik-Regular.otf"
+                android:textColor="#FFC72A" />
         </LinearLayout>
 
         <LinearLayout
@@ -81,8 +81,8 @@
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:text="Upload from Gallery"
                 android:textSize="26sp"
-                app:fontName="onyx.ttf"
-                android:textColor="#B6FFC6" />
+                app:fontName="Graphik-Regular.otf"
+                android:textColor="#FFC72A" />
         </LinearLayout>
 
     </LinearLayout>

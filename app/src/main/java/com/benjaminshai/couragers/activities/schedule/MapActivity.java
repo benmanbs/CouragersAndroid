@@ -47,7 +47,7 @@ public class MapActivity extends ActivityWithToolbar {
         selectImage(mapURL);
     }
 
-    private void setBackgorundColor(int color) {
+    private void setBackgroundColor(int color) {
         mImage.setBackgroundColor(color);
     }
 

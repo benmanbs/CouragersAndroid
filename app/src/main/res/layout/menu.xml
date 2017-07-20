@@ -8,7 +8,7 @@
     android:layout_alignParentLeft="true"
     android:layout_alignParentRight="true"
     android:layout_alignParentStart="true"
-    android:background="#F8D8B1"
+    android:background="#FFC72A"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -28,7 +28,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Schedule" />
+            android:text="Schedule"
+            android:textColor="#FFFBD2" />
 
     </LinearLayout>
 
@@ -49,7 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Upload a Pic"/>
+            android:text="Upload a Pic"
+            android:textColor="#FFFBD2" />
 
     </LinearLayout>
 
@@ -70,7 +72,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Pictures"/>
+            android:text="Pictures"
+            android:textColor="#FFFBD2" />
 
     </LinearLayout>
 

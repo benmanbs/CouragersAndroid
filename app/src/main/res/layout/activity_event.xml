@@ -5,17 +5,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.benjaminshai.couragers.activities.schedule.EventActivity">
 
-    <com.benjaminshai.couragers.views.FontTextView
-        app:fontName="BleedingCowboys.ttf"
+    <ImageView
+        android:id="@+id/backgroundView"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/event_bg_6"
+        android:layout_above="@id/tool_bar" />
+
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/dayTitle"
-        android:text="Wednesday or something"
-        android:gravity="center"
-        android:textSize="26sp"
-        android:shadowColor="@android:color/black"
-        android:shadowRadius="5"
-        android:paddingTop="130px"/>
+        android:id="@+id/headerView"
+        android:src="@drawable/event_header_6" />
 
     <ListView
         android:divider="#FFFFFF"
@@ -24,10 +26,22 @@
         android:id ="@+id/mainList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/dayTitle"
-        android:layout_above="@id/tool_bar" />
+        android:layout_above="@id/tool_bar"
+        android:padding="26dp"
+        android:layout_below="@+id/headerView" />
 
     <include android:id="@id/tool_bar"
         layout="@layout/menu" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/footerView"
+        android:src="@drawable/event_footer_6"
+        android:layout_alignBottom="@+id/mainList"
+        android:paddingBottom="8dp"
+        android:scaleType="fitXY"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
 
 </RelativeLayout>

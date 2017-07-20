@@ -6,8 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.benjaminshai.couragers.Constants;
 import com.benjaminshai.couragers.R;
-import com.benjaminshai.couragers.activities.gallery.GallerySelector;
+import com.benjaminshai.couragers.activities.gallery.GalleriesActivity;
 import com.benjaminshai.couragers.activities.image.upload.UploadActivity;
 import com.benjaminshai.couragers.activities.schedule.DaysActivity;
 
@@ -36,7 +37,8 @@ public abstract class ActivityWithToolbar extends AppCompatActivity {
             gallery.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(ActivityWithToolbar.this, GallerySelector.class);
+                    Intent i = new Intent(ActivityWithToolbar.this, GalleriesActivity.class);
+                    i.putExtra("collectionId", Constants.KIDS_COLLECTION_ID);
                     startActivity(i);
                 }
             });

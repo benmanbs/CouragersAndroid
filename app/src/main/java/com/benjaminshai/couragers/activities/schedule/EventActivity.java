@@ -3,6 +3,7 @@ package com.benjaminshai.couragers.activities.schedule;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,23 +36,36 @@ public class EventActivity extends ActivityWithToolbar {
         Intent intent = getIntent();
         Day day = intent.getParcelableExtra("day");
 
-        TextView t = (TextView)findViewById(R.id.dayTitle);
-        t.setText(day.getDisplayName());
-        t.setTextColor(Color.rgb(day.getTextRed(), day.getTextGreen(), day.getTextBlue()));
+        setBackgroundImage("event_bg_", day.getDayID(), R.id.backgroundView);
+        setBackgroundImage("event_header_", day.getDayID(), R.id.headerView);
+        setBackgroundImage("event_footer_", day.getDayID(), R.id.footerView);
 
         listView = (ListView) findViewById(R.id.mainList);
 
-        eventAdapter = new EventAdapter(this, R.layout.event_row, Arrays.asList(day.getEvents()));
+        eventAdapter = new EventAdapter(this, R.layout.event_row, Arrays.asList(day.getEvents()), Color.rgb(day.getTextRed(), day.getTextGreen(), day.getTextBlue()));
         listView.setAdapter(eventAdapter);
+        TextView empty = new TextView(this);
+        empty.setHeight(400);
+        listView.addFooterView(empty);
+    }
+
+    private void setBackgroundImage(String drawablePrefix, int id, int viewId) {
+        final int resourceId = getResources().getIdentifier(drawablePrefix + id, "drawable",
+                getPackageName());
+        Drawable image = getResources().getDrawable(resourceId);
+        ImageView i = (ImageView)findViewById(viewId);
+        i.setImageDrawable(image);
     }
 
     private class EventAdapter extends ArrayAdapter<Event> {
 
         private List<Event> events;
+        private int color;
 
-        public EventAdapter(Context context, int resource, List<Event> objects) {
+        public EventAdapter(Context context, int resource, List<Event> objects, int color) {
             super(context, resource, objects);
             this.events = objects;
+            this.color = color;
         }
 
 
@@ -73,18 +87,21 @@ public class EventActivity extends ActivityWithToolbar {
 
             if (time != null) {
                 time.setText(event.getTime());
+                time.setTextColor(color);
             }
 
             FontTextView title = (FontTextView) v.findViewById(R.id.list_title_textview);
 
             if (title != null) {
                 title.setText(event.getTitle());
+                title.setTextColor(color);
             }
 
             FontTextView detail = (FontTextView) v.findViewById(R.id.list_details_textview);
 
             if (detail != null) {
                 detail.setText(event.getDetails());
+                detail.setTextColor(color);
             }
 
             ImageView mapButton = (ImageView) v.findViewById(R.id.mapImage);

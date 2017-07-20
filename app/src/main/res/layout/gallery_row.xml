@@ -21,8 +21,8 @@
             android:layout_toStartOf="@+id/more"
             android:text="Wednesday"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            app:fontName="onyx.ttf"
-            android:textColor="#FFFFFF" />
+            app:fontName="Graphik-Regular.otf"
+            android:textColor="#FFC72A" />
 
         <ImageView
             android:id="@+id/more"
