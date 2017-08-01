@@ -8,8 +8,8 @@ android {
         applicationId "com.benjaminshai.couragers"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 13
-        versionName "5.0.1"
+        versionCode 14
+        versionName "6.0.0"
     }
     buildTypes {
         release {
