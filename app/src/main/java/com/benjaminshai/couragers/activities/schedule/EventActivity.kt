@@ -86,37 +86,30 @@ class EventActivity : ActivityWithToolbar() {
 
             val time = v!!.findViewById<View>(R.id.list_time_textview) as FontTextView
 
-            if (time != null) {
-                time.text = event.time
-                time.setTextColor(color)
-            }
+            time.text = event.time
+            time.setTextColor(color)
 
             val title = v.findViewById<View>(R.id.list_title_textview) as FontTextView
 
-            if (title != null) {
-                title.text = event.title
-                title.setTextColor(color)
-            }
+            title.text = event.title
+            title.setTextColor(color)
 
             val detail = v.findViewById<View>(R.id.list_details_textview) as FontTextView
 
-            if (detail != null) {
-                detail.text = event.details
-                detail.setTextColor(color)
-            }
+            detail.text = event.details
+            detail.setTextColor(color)
 
             val mapButton = v.findViewById<View>(R.id.mapImage) as ImageView
 
-            if (mapButton != null) {
-                if (event.hasMap == 1) {
-                    mapButton.setOnClickListener {
-                        val i = Intent(this@EventActivity, MapActivity::class.java)
-                        i.putExtra("mapImageUrl", event.mapURL)
-                        startActivity(i)
-                    }
-                } else {
-                    mapButton.visibility = View.GONE
+            if (event.hasMap == 1) {
+                mapButton.visibility = View.VISIBLE
+                mapButton.setOnClickListener {
+                    val i = Intent(this@EventActivity, MapActivity::class.java)
+                    i.putExtra("mapImageUrl", event.mapURL)
+                    startActivity(i)
                 }
+            } else {
+                mapButton.visibility = View.GONE
             }
 
             return v

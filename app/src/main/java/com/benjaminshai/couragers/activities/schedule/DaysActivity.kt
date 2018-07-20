@@ -102,10 +102,8 @@ class DaysActivity : ActivityWithToolbar(), SwipeRefreshLayout.OnRefreshListener
 
             val dayView = v!!.findViewById<View>(R.id.list_day_textview) as FontTextView
 
-            if (dayView != null) {
-                dayView.text = day.displayName
-                dayView.setTextColor(Color.rgb(day.textRed, day.textGreen, day.textBlue))
-            }
+            dayView.text = day.displayName
+            dayView.setTextColor(Color.rgb(day.textRed, day.textGreen, day.textBlue))
 
             return v
         }
