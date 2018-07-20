@@ -16,13 +16,12 @@ class Day(`in`: Parcel) : Parcelable {
     var textRed: Int = 0
     var textGreen: Int = 0
     var textBlue: Int = 0
-    private var _events: Array<Event>? = null
-    val events: Array<Event>
-        get() {
-            _events ?: return arrayOf()
-            Arrays.sort(_events!!) { lhs, rhs -> lhs.eventID.compareTo(rhs.eventID) }
-            return _events ?: throw AssertionError("Set to null by another thread")
-        }
+    var events: Array<Event>? = null
+
+    fun getSortedEvents(): Array<out Event> {
+        events ?: return arrayOf()
+        return events!!.sortedArrayWith(compareBy(Event::eventID))
+    }
 
     /* Parcelable Stuff */
 
@@ -37,7 +36,7 @@ class Day(`in`: Parcel) : Parcelable {
         dest.writeInt(textRed)
         dest.writeInt(textGreen)
         dest.writeInt(textBlue)
-        dest.writeTypedArray(_events, 0)
+        dest.writeTypedArray(events, 0)
     }
 
     init {
@@ -47,7 +46,7 @@ class Day(`in`: Parcel) : Parcelable {
         textRed = `in`.readInt()
         textGreen = `in`.readInt()
         textBlue = `in`.readInt()
-        _events = `in`.createTypedArray(Event.CREATOR)
+        events = `in`.createTypedArray(Event.CREATOR)
     }
 
     companion object CREATOR: Parcelable.Creator<Day> {

@@ -40,7 +40,7 @@ class EventActivity : ActivityWithToolbar() {
 
         listView = findViewById<View>(R.id.mainList) as ListView
 
-        eventAdapter = EventAdapter(this, R.layout.event_row, Arrays.asList(*day.events), Color.rgb(day.textRed, day.textGreen, day.textBlue))
+        eventAdapter = EventAdapter(this, R.layout.event_row, Arrays.asList(*day.getSortedEvents()), Color.rgb(day.textRed, day.textGreen, day.textBlue))
         listView!!.adapter = eventAdapter
         val empty = TextView(this)
         empty.height = 400
