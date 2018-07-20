@@ -1,5 +1,5 @@
 .idea
 .gradle
-app/src/main/java/com/benjaminshai/couragers/Constants.java
-build/
+app/src/main/java/com/benjaminshai/couragers/Constants.kt
 gradle/
+*.iml
