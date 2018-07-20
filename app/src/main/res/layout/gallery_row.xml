@@ -22,7 +22,7 @@
             android:text="Wednesday"
             android:textAppearance="?android:attr/textAppearanceMedium"
             app:fontName="Graphik-Regular.otf"
-            android:textColor="#FFC72A" />
+            android:textColor="#0074B0" />
 
         <ImageView
             android:id="@+id/more"
