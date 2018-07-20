@@ -34,14 +34,21 @@ class EventActivity : ActivityWithToolbar() {
         val intent = intent
         val day = intent.getParcelableExtra<Day>("day")
 
-        setBackgroundImage("event_bg_", day.dayID, R.id.backgroundView)
-        setBackgroundImage("event_header_", day.dayID, R.id.headerView)
-        setBackgroundImage("event_footer_", day.dayID, R.id.footerView)
-
         listView = findViewById<View>(R.id.mainList) as ListView
 
-        eventAdapter = EventAdapter(this, R.layout.event_row, Arrays.asList(*day.getSortedEvents()), Color.rgb(day.textRed, day.textGreen, day.textBlue))
-        listView!!.adapter = eventAdapter
+        if (day.available == 0) {
+            setBackgroundImage("event_bg_coming_soon_", day.dayID, R.id.backgroundView)
+            setInvisible(R.id.headerView)
+            setInvisible(R.id.footerView)
+        } else {
+            setBackgroundImage("event_bg_", day.dayID, R.id.backgroundView)
+            setBackgroundImage("event_header_", day.dayID, R.id.headerView)
+            setBackgroundImage("event_footer_", day.dayID, R.id.footerView)
+
+
+            eventAdapter = EventAdapter(this, R.layout.event_row, Arrays.asList(*day.getSortedEvents()), Color.rgb(day.textRed, day.textGreen, day.textBlue))
+            listView!!.adapter = eventAdapter
+        }
         val empty = TextView(this)
         empty.height = 400
         listView!!.addFooterView(empty)
@@ -52,7 +59,13 @@ class EventActivity : ActivityWithToolbar() {
                 packageName)
         val image = resources.getDrawable(resourceId)
         val i = findViewById<View>(viewId) as ImageView
+        i.visibility = View.VISIBLE
         i.setImageDrawable(image)
+    }
+
+    private fun setInvisible(viewId: Int) {
+        val i = findViewById<View>(viewId) as ImageView
+        i.visibility = View.INVISIBLE
     }
 
     private inner class EventAdapter(context: Context, resource: Int, private val events: List<Event>, private val color: Int) : ArrayAdapter<Event>(context, resource, events) {
